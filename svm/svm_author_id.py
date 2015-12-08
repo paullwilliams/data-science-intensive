@@ -25,6 +25,16 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #########################################################
 ### your code goes here ###
 
+from sklearn.svm import SVC
+
+#features_train = features_train[:int(len(features_train)/100)]
+#labels_train = labels_train[:int(len(labels_train)/100)]
+
+clf = SVC(kernel='rbf', C=10000)
+clf.fit(features_train, labels_train)
+#print(clf.score(features_test, labels_test))
+#print(clf.predict([features_test[10], features_test[26], features_test[50]]))
+print(sum(clf.predict(features_test)))
 #########################################################
 
 
